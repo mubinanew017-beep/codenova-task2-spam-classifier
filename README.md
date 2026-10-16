@@ -31,13 +31,31 @@ Dataset source: https://archive.ics.uci.edu/dataset/228/sms+spam+collection
 7. Allow users to enter custom messages for classification.
 
 ## Results
+
+The Multinomial Naive Bayes classifier was evaluated on 1,115 unseen test messages.
+
 - **Test accuracy:** 96.05%
-- **Test messages:** 1,115
-- **Correctly classified normal messages:** 966
-- **Correctly classified spam messages:** 105
+- **Precision (Spam):** 1.00 (100%)
+- **Recall (Spam):** 0.70 (70%)
+- **F1-score (Spam):** 0.83 (83%)
 
-The model missed 44 spam messages in this test set, showing that further improvements are possible.
+### Confusion Matrix
 
+The confusion matrix is:
+
+| | Predicted Ham | Predicted Spam |
+|---|---:|---:|
+| Actual Ham | 966 | 0 |
+| Actual Spam | 44 | 105 |
+
+### Key Observations
+
+- **966 ham messages** were correctly classified as ham.
+- **105 spam messages** were correctly classified as spam.
+- **44 spam messages** were incorrectly classified as ham.
+- **0 ham messages** were incorrectly classified as spam.
+
+The model achieved 96.05% accuracy and a spam precision of 100% on this test set. However, its spam recall was 70%, meaning it detected 105 of the 149 spam messages and missed 44. Improving spam recall is an important area for future work.
 ## How to Run
 
 Install the required libraries:
