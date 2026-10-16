@@ -51,7 +51,10 @@ print("Testing messages:", len(X_test))
 
 # 5. Create the machine learning pipeline
 model = Pipeline([
-    ("tfidf", TfidfVectorizer()),
+    ("tfidf", TfidfVectorizer(
+    lowercase=True,
+    stop_words="english"
+)),
     ("classifier", MultinomialNB())
 ])
 
